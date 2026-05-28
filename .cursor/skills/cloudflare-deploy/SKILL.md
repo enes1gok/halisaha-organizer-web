@@ -11,7 +11,7 @@ description: Builds, previews, and deploys HalıSaha web to Cloudflare Workers v
 |------|---------|
 | Dev (fast) | `pnpm dev` |
 | Production-like local | `pnpm preview` |
-| OpenNext artifact only | `pnpm build:worker` |
+| OpenNext artifact only | `pnpm build` (includes OpenNext bundle) |
 | Deploy to Workers | `pnpm deploy` |
 
 ## Pre-deploy
@@ -27,8 +27,8 @@ description: Builds, previews, and deploys HalıSaha web to Cloudflare Workers v
 
 ## Deploy pitfalls
 
-- `pnpm build` alone produces `.next/` only — Workers need `build:worker` / deploy script.
-- Avoid running OpenNext build twice in one pipeline.
+- `pnpm build` runs `next build` then `opennextjs-cloudflare build --skipNextBuild` (Workers Builds default is OK).
+- Avoid `pnpm deploy` as Workers Builds deploy command when build already runs `pnpm build`.
 
 ## Post-deploy verification
 

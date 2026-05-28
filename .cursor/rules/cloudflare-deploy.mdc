@@ -17,15 +17,16 @@ alwaysApply: false
 |---------|-----|
 | `pnpm dev` | Fast UI iteration (Next.js only) |
 | `pnpm preview` | OpenNext + workerd — **production-like** |
-| `pnpm build:worker` | Produce `.open-next/` without deploy |
-| `pnpm deploy` | Build + `wrangler deploy` |
+| `pnpm build` | Produce `.open-next/` (Next + OpenNext bundle) |
+| `pnpm deploy` | `pnpm build` + `opennextjs-cloudflare deploy` |
 
 Prefer `pnpm preview` before assuming edge/middleware behavior matches production.
 
 ## CI / deploy
 
-- `main` push: quality job then `pnpm deploy` with Cloudflare secrets.
-- Do not use `pnpm run deploy` twice in one pipeline (duplicate OpenNext builds).
+- **Production:** Cloudflare Workers Builds — build `pnpm run build`, deploy `npx wrangler deploy`.
+- **GitHub Actions:** quality only (`lint`, `typecheck`, `test`, `pnpm build`); no GHA deploy job.
+- Do not set Workers Builds deploy to `pnpm run deploy` when build already runs `pnpm build`.
 
 ## Post-deploy checks
 

@@ -24,8 +24,9 @@ pnpm preview      # OpenNext + workerd (production'a yakın)
 | `pnpm lint` | Biome check |
 | `pnpm typecheck` | `tsc --noEmit` |
 | `pnpm test` | Vitest unit tests |
-| `pnpm build` | Next.js build |
-| `pnpm build:worker` | OpenNext build (produces `.open-next/` for Workers) |
+| `pnpm build` | Next.js + OpenNext (`.open-next/` for Workers) |
+| `pnpm build:next` | Next.js only (faster check) |
+| `pnpm build:worker` | Alias for `pnpm build` |
 | `pnpm deploy` | OpenNext build + Cloudflare Workers deploy |
 
 ## Route'lar
@@ -41,11 +42,13 @@ Legacy: `/match/*` ve `/group/*` → middleware ile `/invite/*` yönlendirmesi.
 
 ## Deploy
 
+> **Workers Builds:** `pnpm run build` artık Next.js + OpenNext bundle üretir (`.open-next/`). Dashboard’da build: `pnpm run build`, deploy: `npx wrangler deploy` yeterli. Deploy komutunu `pnpm run deploy` yapmayın (build iki kez çalışır).
+
 1. Cloudflare'de `CLOUDFLARE_API_TOKEN` ve `CLOUDFLARE_ACCOUNT_ID` secret'larını GitHub'a ekleyin.
-2. `main` branch push → GitHub Actions `deploy` job çalışır.
+2. **Production deploy:** Cloudflare Workers Builds (`main` push). GitHub Actions yalnızca lint/typecheck/test/build doğrular.
 3. Yerel deploy: `pnpm deploy` (wrangler login gerekir).
 
-**Workers Builds** (Cloudflare dashboard): build command `pnpm run build:worker`, deploy command `npx wrangler deploy`. Worker adı `wrangler.jsonc` içindeki `halisaha-web` ile eşleşmeli. `pnpm run build` kullanmayın (yalnızca `.next/` üretir); deploy komutunu `pnpm run deploy` yapmayın (OpenNext build iki kez çalışır).
+**Workers Builds** (Cloudflare dashboard): build `pnpm run build`, deploy `npx wrangler deploy`. Worker adı `halisaha-web` ([`wrangler.jsonc`](wrangler.jsonc) ile aynı olmalı).
 
 Detay: [docs/architecture.md](docs/architecture.md)
 

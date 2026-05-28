@@ -18,8 +18,9 @@ Marketing site and mobile deep-link fallback pages for **halisaha.cc**. Phase 2 
 | `pnpm lint` | Biome check |
 | `pnpm typecheck` | `tsc --noEmit` |
 | `pnpm test` | Vitest unit tests |
-| `pnpm build` | Next.js build |
-| `pnpm build:worker` | OpenNext build → `.open-next/` |
+| `pnpm build` | Next.js + OpenNext → `.open-next/` (Workers Builds default) |
+| `pnpm build:next` | Next.js only |
+| `pnpm build:worker` | Alias for `pnpm build` |
 | `pnpm deploy` | OpenNext build + Wrangler deploy |
 
 **CI order:** `lint` → `typecheck` → `test` → `build` (see `.github/workflows/ci.yml`).

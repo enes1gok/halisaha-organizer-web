@@ -14,8 +14,8 @@
 ## Deploy
 
 - **Runtime:** Cloudflare Workers (`@opennextjs/cloudflare`)
-- **Komutlar:** `pnpm build:worker` (OpenNext), `pnpm preview` (workerd), `pnpm deploy` (production)
-- **Workers Builds:** build `pnpm run build:worker`, deploy `npx wrangler deploy`
+- **Komutlar:** `pnpm build` (Next + OpenNext), `pnpm preview` (workerd), `pnpm deploy` (production)
+- **Workers Builds:** build `pnpm run build`, deploy `npx wrangler deploy` (tek production deploy yolu)
 - **Domain:** `halisaha.cc` custom domain (Workers)
 
 ## Mobil repo
