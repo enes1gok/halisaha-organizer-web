@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.enesgok.halisahamacorganizeet",
+      "sha256_cert_fingerprints": [
+        "E2:28:65:D3:D1:F6:D5:0D:6F:49:43:CD:81:6C:D0:B5:F5:4B:27:DD:EC:66:E7:29:19:21:37:C4:9C:8B:45:38"
+      ]
+    }
+  }
+]

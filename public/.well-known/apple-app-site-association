@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "4GBY4LQSM4.com.enesgok.halisahamacorganizeet",
+        "paths": ["/auth/callback", "/invite/*", "/match/*", "/group/*"]
+      }
+    ]
+  }
+}
