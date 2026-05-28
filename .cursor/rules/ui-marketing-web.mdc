@@ -1,0 +1,41 @@
+---
+description: Web UI/UX checklist for HalıSaha marketing, invite, and styles
+globs: "src/components/**/*,src/styles/**/*,src/app/**/*.tsx"
+alwaysApply: false
+---
+
+# Marketing & Web UI
+
+## Before coding UI
+
+1. Read `design-system/halisaha/MASTER.md` (especially **HalıSaha Brand Overrides**)
+2. Check `design-system/halisaha/pages/[page].md` if it exists (overrides Master)
+3. For new patterns, use `halisaha-ui` skill or `ui-ux-pro-max` with `--stack nextjs`
+
+## Tokens & Tailwind
+
+- Colors/fonts from `src/styles/tokens.css` and `@theme` in `globals.css`
+- No scattered hex values in components when a token exists
+
+## Interaction (web)
+
+- `cursor-pointer` on all clickable elements
+- Hover/focus transitions: 150–300ms; respect `prefers-reduced-motion`
+- Visible focus rings for keyboard navigation
+- Touch targets: min 44×44px on mobile CTAs
+
+## Accessibility
+
+- Body text contrast ≥ 4.5:1 on `--text` / `--muted` over dark backgrounds
+- Turkish copy; `lang="tr"` on `<html>`
+- SVG icons for nav/CTAs; decorative ⚽ badges OK on marketing hero only
+
+## Responsive
+
+Test at 375px, 768px, 1024px, 1440px. No horizontal scroll on mobile.
+
+## Patterns to reuse
+
+- `Button` from `@/components/ui/Button`
+- `RevealOnScroll` for section entrances
+- `.field-bg` for pitch grid backgrounds on hero/invite pages

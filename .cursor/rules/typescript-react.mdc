@@ -32,6 +32,7 @@ const { NEXT_PUBLIC_SITE_URL } = getEnv();
 ## UI copy
 
 - User-facing strings in **Turkish** (invite pages, marketing).
+- UI work: follow `design-system/halisaha/MASTER.md` brand overrides; tokens in `src/styles/tokens.css`.
 
 ## Error handling
 

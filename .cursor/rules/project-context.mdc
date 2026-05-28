@@ -26,6 +26,10 @@ alwaysApply: true
 4. **Verify:** `pnpm lint && pnpm typecheck && pnpm test` after meaningful edits.
 5. **Runtime:** `pnpm preview` for production-like behavior; `next dev` alone is insufficient for Workers/OpenNext edge cases.
 
+## UI / design tasks
+
+For marketing, landing, invite UI, or redesign: use **`halisaha-ui`** skill (reads `design-system/halisaha/`). Upstream search: `.cursor/skills/ui-ux-pro-max/`. Requires Python 3.
+
 ## Commits
 
 Do not create git commits unless the user explicitly asks.

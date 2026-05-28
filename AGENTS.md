@@ -80,6 +80,33 @@ Do not add Phase 2 code unless the task explicitly requests it.
 
 Project skills live in `.cursor/skills/`. Rules in `.cursor/rules/`.
 
+## UI / Design
+
+**Prerequisite:** Python 3.x (`python3 --version`) for design intelligence search.
+
+| Resource | Path |
+|----------|------|
+| Brand + persisted design system | `design-system/halisaha/MASTER.md` |
+| Page overrides | `design-system/halisaha/pages/landing.md`, `invite.md` |
+| HalıSaha UI workflow | `.cursor/skills/halisaha-ui/` |
+| UI UX Pro Max (upstream) | `.cursor/skills/ui-ux-pro-max/` |
+
+**Install / update upstream:**
+
+```bash
+npx uipro-cli@latest init --ai cursor   # first time
+npx uipro-cli@latest update               # upgrade
+```
+
+**Example search (from repo root):**
+
+```bash
+python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "sports landing" --design-system -p "HalıSaha" -f markdown
+python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "responsive layout" --stack nextjs
+```
+
+Always apply **HalıSaha Brand Overrides** in `MASTER.md` over generic uipro palettes. Colors/fonts: `src/styles/tokens.css`.
+
 ## Agent discipline
 
 1. **Explore:** Codegraph first for “how does X work?”; grep only to confirm details.

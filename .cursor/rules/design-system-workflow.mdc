@@ -1,0 +1,37 @@
+---
+description: How to read and update HalıSaha persisted design system files
+globs: "design-system/**/*"
+alwaysApply: false
+---
+
+# Design system workflow
+
+## Path
+
+`design-system/halisaha/`
+
+| File | Role |
+|------|------|
+| `MASTER.md` | Global rules; **Brand Overrides** section is mandatory |
+| `pages/landing.md` | `/` marketing overrides |
+| `pages/invite.md` | `/invite/*` fallback overrides |
+
+## Hierarchy
+
+1. Page file (`pages/*.md`) if it exists
+2. `MASTER.md` (brand overrides beat generated palettes below)
+3. `src/styles/tokens.css` for actual CSS values
+
+## Regenerating (UI Pro Max)
+
+```bash
+python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "<query>" \
+  --design-system --persist -p "HalıSaha" -f markdown
+```
+
+Re-apply **HalıSaha Brand Overrides** in `MASTER.md` after `uipro update` if MASTER was overwritten.
+
+## When to update docs
+
+- New marketing section or page type → add `pages/<name>.md` via `--page`
+- Route changes → `docs/architecture.md` + `add-feature-route` skill

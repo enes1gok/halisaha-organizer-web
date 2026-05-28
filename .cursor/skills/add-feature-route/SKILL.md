@@ -11,6 +11,7 @@ Copy and track progress:
 
 ```
 - [ ] Read docs/architecture.md
+- [ ] UI-heavy? Run `halisaha-ui` workflow (design-system/halisaha/ first)
 - [ ] Feature logic in src/features/<name>/
 - [ ] UI in src/components/<area>/
 - [ ] Page in src/app/...

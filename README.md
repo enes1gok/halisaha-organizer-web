@@ -58,10 +58,19 @@ Web paneli (`src/app/(app)/`) ve Supabase SSR — `.env.example` içindeki deği
 Agent ve ekip için proje rehberi:
 
 - **[AGENTS.md](AGENTS.md)** — stack, komutlar, route sözleşmesi, cross-repo
-- **`.cursor/rules/`** — otomatik uygulanan kod kuralları (TypeScript, App Router, deploy, vb.)
-- **`.cursor/skills/`** — iş akışları (`quality-gate`, `cloudflare-deploy`, `invite-deep-links`, …)
+- **`.cursor/rules/`** — otomatik uygulanan kod kuralları (TypeScript, App Router, UI, deploy, vb.)
+- **`.cursor/skills/`** — iş akışları (`quality-gate`, `halisaha-ui`, `invite-deep-links`, …)
+- **[design-system/halisaha/](design-system/halisaha/)** — kalıcı tasarım sistemi (UI UX Pro Max + marka override)
 
-Yeni özellik veya route eklerken `add-feature-route` skill'ini kullanın; PR öncesi `quality-gate`.
+**UI UX Pro Max** ([upstream](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)):
+
+```bash
+python3 --version                    # önkoşul
+npx uipro-cli@latest init --ai cursor
+npx uipro-cli@latest update          # güncelleme
+```
+
+Marketing / landing / invite UI için `@halisaha-ui` skill'ini kullanın. PR öncesi `quality-gate`.
 
 ## Cloudflare MCP checklist (Cursor)
 
