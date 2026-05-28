@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="relative z-[1] max-w-[580px]">
         <RevealOnScroll>
           <span className="mb-7 inline-flex items-center gap-2 rounded-full border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.12)] px-3.5 py-1.5 text-[13px] font-semibold text-[var(--green)]">
-            ⚽ Türkiye&apos;nin Halısaha Uygulaması
+            ⚽ Halısaha Maç Organizasyonu
           </span>
         </RevealOnScroll>
         <RevealOnScroll>
@@ -109,7 +109,7 @@ export function HeroSection() {
             </div>
             <div className="w-full flex-1 text-[10px]">
               <div className="mb-1.5 font-bold text-[var(--muted)]">⚽ GOL LİDERLERİ</div>
-              {["Enes G.", "Ahmet K.", "Mert Ş."].map((name, i) => (
+              {["Can Y.", "Ahmet K.", "Mert Ş."].map((name, i) => (
                 <div key={name} className="flex border-b border-white/5 py-1">
                   <span className="w-3.5 font-[family-name:var(--font-display)] text-sm text-[var(--green)]">
                     {i + 1}

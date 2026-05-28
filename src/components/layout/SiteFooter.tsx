@@ -76,15 +76,8 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-2 border-t border-[var(--border)] pt-6 text-[13px] text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-[var(--border)] pt-6 text-[13px] text-[var(--muted)]">
         <span>© {new Date().getFullYear()} HalıSaha – Maç Organize Et. Tüm hakları saklıdır.</span>
-        <span>
-          Geliştirici:{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-[var(--green)] no-underline">
-            Enes Gök
-          </a>{" "}
-          · Konya, Türkiye
-        </span>
       </div>
     </footer>
   );

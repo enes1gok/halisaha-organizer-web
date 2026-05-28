@@ -71,7 +71,7 @@ export const steps = [
 
 export const goalLeaders = [
   { rank: 1, name: "Ahmet Kaya", sub: "24 maç oynadı", val: "14", medal: "gold" },
-  { rank: 2, name: "Enes Gök", sub: "28 maç oynadı", val: "11", medal: "silver" },
+  { rank: 2, name: "Serhat Yılmaz", sub: "28 maç oynadı", val: "11", medal: "silver" },
   { rank: 3, name: "Mert Demir", sub: "20 maç oynadı", val: "9", medal: "bronze" },
   { rank: 4, name: "Burak Şen", sub: "18 maç oynadı", val: "7", medal: "default" },
   { rank: 5, name: "Onur Arslan", sub: "22 maç oynadı", val: "6", medal: "default" },
@@ -80,7 +80,7 @@ export const goalLeaders = [
 export const assistLeaders = [
   { rank: 1, name: "Mert Demir", sub: "Playmaker", val: "18", medal: "gold" },
   { rank: 2, name: "Tolga Avcı", sub: "Orta saha", val: "13", medal: "silver" },
-  { rank: 3, name: "Enes Gök", sub: "28 maç oynadı", val: "10", medal: "bronze" },
+  { rank: 3, name: "Can Özkan", sub: "26 maç oynadı", val: "10", medal: "bronze" },
   { rank: 4, name: "Serkan Ertaş", sub: "16 maç oynadı", val: "8", medal: "default" },
   { rank: 5, name: "Ahmet Kaya", sub: "24 maç oynadı", val: "6", medal: "default" },
 ] as const;
