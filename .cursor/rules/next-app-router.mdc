@@ -1,0 +1,42 @@
+---
+description: Next.js 15 App Router patterns for HalıSaha web
+globs: "src/app/**/*"
+alwaysApply: false
+---
+
+# App Router
+
+## Next.js 15 params
+
+Dynamic route `params` is a **Promise** — await it in pages and `generateMetadata`:
+
+```typescript
+type PageProps = { params: Promise<{ code: string }> };
+
+export default async function Page({ params }: PageProps) {
+  const { code } = await params;
+  // ...
+}
+```
+
+## Server vs client
+
+- Default to **Server Components**.
+- Use `"use client"` only for browser APIs (e.g. `window.location` in auth callback).
+
+## Invite pages
+
+- Set `robots: { index: false }` in metadata for invite routes.
+- Decode invite codes with `decodeURIComponent` when rendering.
+
+## New routes
+
+1. Add page under `src/app/`.
+2. Put parsers/builders in `src/features/`.
+3. Update route table in `docs/architecture.md`.
+4. Add Vitest coverage for feature logic.
+
+## Layout groups
+
+- `(marketing)/` — public landing
+- `(app)/` — Phase 2 protected panel (not yet present)

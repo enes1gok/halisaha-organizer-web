@@ -1,0 +1,31 @@
+---
+description: HalıSaha web project context, stack, and agent discipline
+alwaysApply: true
+---
+
+# Project context
+
+**Product:** HalıSaha organizer web (`halisaha.cc`) — marketing, invite fallbacks, Supabase auth relay. Phase 2: protected web panel.
+
+**Package manager:** pnpm only (`pnpm install --frozen-lockfile` in CI).
+
+**Lint/format:** Biome (`pnpm lint`, `pnpm lint:fix`). Do not add ESLint or Prettier.
+
+**Entry doc:** Read [AGENTS.md](../../AGENTS.md) for commands, routes, and cross-repo notes.
+
+## Phases
+
+- Phase 1: no `src/app/(app)/` yet.
+- Phase 2: Supabase SSR panel — only when the task explicitly requests it; follow `docs/architecture.md`.
+
+## Agent efficiency
+
+1. **Discovery:** Codegraph MCP (`codegraph_context`, `codegraph_trace`) before grep/read loops.
+2. **Architecture:** Read `docs/architecture.md` before route or deploy changes; update it in the same change.
+3. **Scope:** Minimal diff; no unrelated refactors.
+4. **Verify:** `pnpm lint && pnpm typecheck && pnpm test` after meaningful edits.
+5. **Runtime:** `pnpm preview` for production-like behavior; `next dev` alone is insufficient for Workers/OpenNext edge cases.
+
+## Commits
+
+Do not create git commits unless the user explicitly asks.

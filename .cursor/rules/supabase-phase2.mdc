@@ -1,0 +1,42 @@
+---
+description: Supabase SSR conventions for Phase 2 web panel (planned)
+globs: "src/app/(app)/**/*,**/supabase/**"
+alwaysApply: false
+---
+
+# Supabase Phase 2 (planned)
+
+> **Status:** Phase 2 not started. `src/app/(app)/` does not exist yet. Apply this rule only when scaffolding the web panel.
+
+## Scope split
+
+- **Official Supabase plugin skill:** RLS, migrations, security checklist, MCP/CLI usage.
+- **This repo:** Next.js layout, route guards, env wiring, HalıSaha-specific routes.
+
+Do not duplicate Supabase security docs here — reference the plugin skill.
+
+## Client setup
+
+- Use `@supabase/ssr` with cookie-based sessions for App Router.
+- Public env only: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (see `.env.example`).
+- Never expose `service_role` in client or `NEXT_PUBLIC_*` vars.
+
+## Authorization
+
+- RLS on all exposed tables; policies match halisaha-organizer schema.
+- Do not authorize from `user_metadata` JWT claims.
+
+## Repo layout (when implementing)
+
+```
+src/app/(app)/
+  layout.tsx      # session check, redirect unauthenticated
+  ...
+src/lib/supabase/
+  server.ts       # createServerClient for RSC
+  client.ts       # browser client (client components only)
+```
+
+## Cross-repo
+
+Schema and RPC source of truth: **halisaha-organizer** repo. Align web panel queries with mobile app contracts.

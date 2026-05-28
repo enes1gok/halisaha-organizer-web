@@ -1,0 +1,43 @@
+---
+description: TypeScript and React conventions for HalıSaha web
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TypeScript & React
+
+## Imports and paths
+
+- Use `@/` alias for `src/` (e.g. `@/features/invites/invite-links`).
+
+## Domain logic
+
+- Put **pure, testable logic** in `src/features/` (no React, no DOM).
+- Colocate feature modules by domain (`invites/`, `auth/`).
+- Unit-test features from `tests/unit/`.
+
+## Environment
+
+- Validate env via Zod in `src/lib/env.ts`; do not read `process.env` ad hoc in components.
+
+```typescript
+// Bad — scattered env access
+const url = process.env.NEXT_PUBLIC_SITE_URL;
+
+// Good — centralized schema
+import { getEnv } from "@/lib/env";
+const { NEXT_PUBLIC_SITE_URL } = getEnv();
+```
+
+## UI copy
+
+- User-facing strings in **Turkish** (invite pages, marketing).
+
+## Error handling
+
+- No empty `catch` blocks; handle or rethrow with context.
+
+## Components
+
+- Prefer functional components and named exports for feature modules.
+- Keep components focused; extract hooks only when logic is reused.

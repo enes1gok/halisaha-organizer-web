@@ -1,0 +1,41 @@
+---
+description: Vitest unit testing conventions
+globs: "tests/**/*,**/*.test.ts"
+alwaysApply: false
+---
+
+# Testing (Vitest)
+
+## What to test
+
+- **Primary target:** pure functions in `src/features/`.
+- Place tests in `tests/unit/` mirroring feature names (e.g. `invite-links.test.ts`).
+
+## Running tests
+
+```bash
+pnpm test          # CI / pre-PR
+pnpm test:watch    # local iteration
+```
+
+## Invite URL cases
+
+Cover when touching invite logic:
+
+- `https://halisaha.cc/invite/match/CODE` and `/invite/group/CODE`
+- `halisaha://invite/match/CODE` scheme URLs
+- Invalid / partial paths return `null`
+- `encodeURIComponent` round-trip for special characters
+
+## Auth callback cases
+
+Cover when touching `parse-callback.ts`:
+
+- Hash vs query param parsing
+- `type=recovery`, `signup`, `email_change`
+- Error descriptions and deep link builder output
+
+## Style
+
+- Use descriptive `it()` / `describe()` names.
+- No snapshot tests for simple string/url logic — assert exact values.

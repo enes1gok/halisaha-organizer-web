@@ -53,6 +53,16 @@ Detay: [docs/architecture.md](docs/architecture.md)
 
 Web paneli (`src/app/(app)/`) ve Supabase SSR — `.env.example` içindeki değişkenlere bakın.
 
+## Cursor / AI
+
+Agent ve ekip için proje rehberi:
+
+- **[AGENTS.md](AGENTS.md)** — stack, komutlar, route sözleşmesi, cross-repo
+- **`.cursor/rules/`** — otomatik uygulanan kod kuralları (TypeScript, App Router, deploy, vb.)
+- **`.cursor/skills/`** — iş akışları (`quality-gate`, `cloudflare-deploy`, `invite-deep-links`, …)
+
+Yeni özellik veya route eklerken `add-feature-route` skill'ini kullanın; PR öncesi `quality-gate`.
+
 ## Cloudflare MCP checklist (Cursor)
 
 İnşa / deploy sonrası:

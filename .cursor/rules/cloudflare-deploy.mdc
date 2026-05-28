@@ -1,0 +1,37 @@
+---
+description: Cloudflare Workers and OpenNext deploy conventions
+globs: "wrangler.jsonc,open-next.config.ts,.github/workflows/**"
+alwaysApply: false
+---
+
+# Cloudflare deploy
+
+## Runtime
+
+- **Workers** + `@opennextjs/cloudflare` (see `docs/adr/001-workers-opennext.md`).
+- Worker entry: `.open-next/worker.js` (`wrangler.jsonc`).
+
+## Local verification
+
+| Command | Use |
+|---------|-----|
+| `pnpm dev` | Fast UI iteration (Next.js only) |
+| `pnpm preview` | OpenNext + workerd — **production-like** |
+| `pnpm build:worker` | Produce `.open-next/` without deploy |
+| `pnpm deploy` | Build + `wrangler deploy` |
+
+Prefer `pnpm preview` before assuming edge/middleware behavior matches production.
+
+## CI / deploy
+
+- `main` push: quality job then `pnpm deploy` with Cloudflare secrets.
+- Do not use `pnpm run deploy` twice in one pipeline (duplicate OpenNext builds).
+
+## Post-deploy checks
+
+Use Cloudflare observability MCP for 5xx on:
+
+- `/invite/match/*`, `/invite/group/*`
+- `/auth/callback`
+
+See README Cloudflare MCP checklist.
